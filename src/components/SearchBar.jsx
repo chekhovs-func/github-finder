@@ -6,6 +6,7 @@ const StyledSearchBar = styled.section`
 
   display: flex;
 
+  margin-bottom: 24px;
   border-radius: 15px;
   width: 100%;
   height: 69px;
@@ -39,10 +40,15 @@ const StyledSearchBar = styled.section`
   }
 
   button {
+    justify-content: center;
+    align-items: center;
+
+    display: flex;
+
     border-style: none;
     border-radius: 10px;
-    width: 106px;
     height: 50px;
+    padding-inline: 24px;
 
     background-color: ${props => props.theme.accent};
 
@@ -56,6 +62,7 @@ const StyledSearchBar = styled.section`
   }
 
   @media screen and (min-width: 375px) {
+    margin-bottom: 16px;
     height: 60px;
     padding-inline: 16px 7px;
 
@@ -67,7 +74,7 @@ const StyledSearchBar = styled.section`
 
     button {
       width: 84px;
-      height: 46px;
+      padding-inline: 16px;
 
       font-size: 14px;
     }
