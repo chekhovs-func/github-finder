@@ -1,5 +1,6 @@
 import { dark } from '../themes';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Header from './Header';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -9,6 +10,31 @@ const GlobalStyle = createGlobalStyle`
 
   font-family: 'Space Mono', monospace;
 }
+`;
+
+const StyledApp = styled.main`
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  display: flex;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: ${props => props.theme.background};
+
+  section {
+    width: 327px;
+
+    @media screen and (min-width: 768px) {
+      width: 573px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      width: 730px;
+    }
+  }
 `;
 
 export default function App() {
@@ -31,7 +57,13 @@ export default function App() {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={dark}></ThemeProvider>
+      <ThemeProvider theme={dark}>
+        <StyledApp>
+          <section>
+            <Header />
+          </section>
+        </StyledApp>
+      </ThemeProvider>
     </>
   );
 }
