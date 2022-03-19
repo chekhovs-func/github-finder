@@ -26,6 +26,8 @@ const StyledApp = styled.main`
 
   background-color: ${props => props.theme.background};
 
+  overflow-x: hidden;
+
   .wrapper {
     width: 327px;
 
