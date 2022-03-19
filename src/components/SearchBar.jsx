@@ -15,7 +15,8 @@ const StyledSearchBar = styled.section`
 
   input {
     border-style: none;
-    width: 274px;
+    width: 100%;
+    padding-right: 32px;
 
     background-color: transparent;
 
@@ -59,6 +60,8 @@ const StyledSearchBar = styled.section`
     padding-inline: 16px 7px;
 
     input {
+      padding-right: 16px;
+
       font-size: 13px;
     }
 
