@@ -48,6 +48,10 @@ const StyledSearchBar = styled.section`
     font-size: 16px;
     font-weight: 800;
     color: ${props => props.theme.primary};
+
+    &:hover {
+      background-color: ${props => props.theme.primaryActive};
+    }
   }
 
   @media screen and (min-width: 375px) {
