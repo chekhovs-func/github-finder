@@ -6,22 +6,23 @@ const StyledSearchBar = styled.section`
 
   display: flex;
 
-  margin-bottom: 24px;
+
+  margin-bottom: 16px;
   border-radius: 15px;
   width: 100%;
-  height: 69px;
-  padding-inline: 32px 10px;
+  height: 60px;
+  padding-inline: 16px 7px;
 
   background-color: ${props => props.theme.foreground};
 
   input {
     border-style: none;
     width: 100%;
-    padding-right: 32px;
+    padding-right: 16px;
 
     background-color: transparent;
 
-    font-size: 18px;
+    font-size: 13px;
     font-weight: 400;
     color: ${props => props.theme.primary};
 
@@ -47,12 +48,13 @@ const StyledSearchBar = styled.section`
 
     border-style: none;
     border-radius: 10px;
+    width: 84px;
     height: 50px;
-    padding-inline: 24px;
+    padding-inline: 16px;
 
     background-color: ${props => props.theme.accent};
 
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 800;
     color: ${props => props.theme.primary};
 
@@ -61,22 +63,22 @@ const StyledSearchBar = styled.section`
     }
   }
 
-  @media screen and (min-width: 375px) {
-    margin-bottom: 16px;
-    height: 60px;
-    padding-inline: 16px 7px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 24px;
+    height: 69px;
+    padding-inline: 32px 10px;
 
     input {
-      padding-right: 16px;
+      padding-right: 32px;
 
-      font-size: 13px;
+      font-size: 18px;
     }
 
     button {
-      width: 84px;
-      padding-inline: 16px;
+      width: auto;
+      padding-inline: 24px;
 
-      font-size: 14px;
+      font-size: 16px;
     }
   }
 `;
