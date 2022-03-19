@@ -1,6 +1,7 @@
 import { dark } from '../themes';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Header from './Header';
+import SearchBar from './SearchBar';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -61,6 +62,7 @@ export default function App() {
         <StyledApp>
           <section>
             <Header />
+            <SearchBar/>
           </section>
         </StyledApp>
       </ThemeProvider>
