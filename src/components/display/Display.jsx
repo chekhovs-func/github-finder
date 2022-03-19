@@ -14,7 +14,6 @@ const StyledDisplay = styled.section`
   @media screen and (min-width: 1440px) {
     padding: 48px;
   }
-
 `;
 
 export default function Display() {
