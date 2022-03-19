@@ -2,6 +2,7 @@ import { dark } from '../themes';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Header from './Header';
 import SearchBar from './SearchBar';
+import Display from './display/Display';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -25,7 +26,7 @@ const StyledApp = styled.main`
 
   background-color: ${props => props.theme.background};
 
-  section {
+  .wrapper {
     width: 327px;
 
     @media screen and (min-width: 768px) {
@@ -60,9 +61,10 @@ export default function App() {
       <GlobalStyle />
       <ThemeProvider theme={dark}>
         <StyledApp>
-          <section>
+          <section className='wrapper'>
             <Header />
-            <SearchBar/>
+            <SearchBar />
+            <Display />
           </section>
         </StyledApp>
       </ThemeProvider>
