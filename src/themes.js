@@ -3,6 +3,6 @@ export const dark = {
   foreground: '#1e2a47',
   primary: '#ffffff',
   accent: '#0079ff',
-  primaryActive: '#697C9a',
+  primaryActive: '#60abff',
   secondaryActive: '#90a4d4',
 };
