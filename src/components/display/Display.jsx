@@ -18,12 +18,27 @@ const StyledDisplay = styled.section`
   }
 `;
 
-export default function Display() {
+export default function Display(props) {
+  const {
+    avatar,
+    name,
+    login,
+    created,
+    bio,
+    repos,
+    followers,
+    following,
+    location,
+    blog,
+    twitter,
+    company,
+  } = props;
+
   return (
     <StyledDisplay>
-      <Info />
-      <Stats />
-      <Links />
+      <Info avatar={avatar} name={name} login={login} created={created} bio={bio} />
+      <Stats repos={repos} followers={followers} following={following} />
+      <Links location={location} blog={blog} twitter={twitter} company={company} />
     </StyledDisplay>
   );
 }

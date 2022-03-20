@@ -31,6 +31,10 @@ const StyledLinks = styled.ul`
         cursor: pointer;
       }
     }
+
+    .faded {
+      opacity: 0.5;
+    }
   }
 
   @media screen and (min-width: 768px) {
@@ -59,24 +63,29 @@ const StyledLinks = styled.ul`
   }
 `;
 
-export default function Links() {
+export default function Links(props) {
+  const { location, blog, twitter, company } = props;
+
+  const checkProps = prop =>
+    prop ? <p>{prop}</p> : <p className='faded'>Not Available</p>;
+
   return (
     <StyledLinks>
       <li>
         <p className='emoji'>📍</p>
-        <p>San Francisco</p>
+        {checkProps(location)}
       </li>
       <li>
         <p className='emoji'>🔗</p>
-        <a>https://github.blog</a>
+        {blog ? <a>{blog}</a> : <p className='faded'>Not Available</p>}
       </li>
       <li>
         <p className='emoji'>🐥</p>
-        <p>Not Available</p>
+        {checkProps(twitter)}
       </li>
       <li>
         <p className='emoji'>🏢</p>
-        <p>@github</p>
+        {checkProps(company)}
       </li>
     </StyledLinks>
   );
