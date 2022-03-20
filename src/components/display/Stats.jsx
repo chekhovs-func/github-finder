@@ -5,6 +5,7 @@ const StyledStats = styled.section`
 
   display: flex;
 
+  margin-bottom: 24px;
   border-radius: 10px;
   width: 100%;
   padding: 18px 15px;
@@ -33,6 +34,7 @@ const StyledStats = styled.section`
   @media screen and (min-width: 768px) {
     justify-content: space-between;
 
+    margin-bottom: 30px;
     padding: 16px 96px 16px 32px;
 
     article {
@@ -52,6 +54,7 @@ const StyledStats = styled.section`
     position: relative;
     right: -150px;
 
+    margin-bottom: 37px;
     width: 480px;
   }
 `;
