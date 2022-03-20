@@ -58,6 +58,8 @@ const StyledSearchBar = styled.section`
     font-weight: 800;
     color: ${props => props.theme.primary};
 
+    cursor: pointer;
+
     &:hover {
       background-color: ${props => props.theme.primaryActive};
     }
