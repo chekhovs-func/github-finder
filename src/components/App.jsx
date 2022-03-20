@@ -31,6 +31,10 @@ const StyledApp = styled.main`
   .wrapper {
     width: 327px;
 
+    @media screen and (max-height: 375px) {
+      margin-top: 370px;
+    }
+
     @media screen and (min-width: 768px) {
       width: 573px;
     }
