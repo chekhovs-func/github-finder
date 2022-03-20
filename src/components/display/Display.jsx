@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Info from './Info';
+import Stats from './Stats';
 
 const StyledDisplay = styled.section`
   border-radius: 15px;
@@ -20,6 +21,7 @@ export default function Display() {
   return (
     <StyledDisplay>
       <Info />
+      <Stats />
     </StyledDisplay>
   );
 }
