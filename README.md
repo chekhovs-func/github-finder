@@ -22,9 +22,8 @@ A live version of this repo can be found [here](https://chekhovs-func.github.io/
 
 ### Built with
 
-- Semantic HTML5 markup
 - [React](https://reactjs.org)
-- [Styled-Components](https://sass-lang.com/)
+- [Styled-Components](https://styled-components.com)
 - HTML5
 - Mobile-first workflow
 
