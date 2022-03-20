@@ -25,6 +25,9 @@ const StyledLinks = styled.ul`
     }
 
     a {
+      text-decoration: none;
+      color: ${props => props.theme.primary};
+
       &:hover {
         text-decoration: underline;
 
@@ -77,7 +80,13 @@ export default function Links(props) {
       </li>
       <li>
         <p className='emoji'>🔗</p>
-        {blog ? <a>{blog}</a> : <p className='faded'>Not Available</p>}
+        {blog ? (
+          <a href={blog} target='_blank'>
+            {blog}
+          </a>
+        ) : (
+          <p className='faded'>Not Available</p>
+        )}
       </li>
       <li>
         <p className='emoji'>🐥</p>
