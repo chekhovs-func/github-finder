@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { dark, light } from '../themes';
 
 const StyledHeader = styled.header`
   justify-content: space-between;
@@ -27,7 +28,7 @@ const StyledHeader = styled.header`
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 2.5px;
-      color: ${props => props.theme.primary};
+      color: ${props => props.theme.tertiary};
 
       cursor: pointer;
 
@@ -38,13 +39,19 @@ const StyledHeader = styled.header`
   }
 `;
 
-export default function Header() {
+export default function Header(props) {
+  const { theme, setTheme } = props;
+
+  const onClickHandler = () => {
+    theme === dark ? setTheme(light) : setTheme(dark);
+  };
+
   return (
     <StyledHeader>
       <h1>devfinder</h1>
       <article>
-        <button>Light</button>
-        <p>☀️</p>
+        <button onClick={onClickHandler}>{theme === light ? 'Dark' : 'Light'}</button>
+        <p>{theme === light ? '🌙' : '☀️'}</p>
       </article>
     </StyledHeader>
   );

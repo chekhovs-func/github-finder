@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { light } from '../themes';
 
 const StyledSearchBar = styled.form`
   justify-content: space-between;
@@ -7,6 +8,8 @@ const StyledSearchBar = styled.form`
   display: flex;
 
   margin-bottom: 16px;
+  box-shadow: ${props =>
+    props.theme === light ? 'rgba(70, 96, 187, .20) 0 16px 30px -20px' : 'none'};
   border-radius: 15px;
   width: 100%;
   height: 60px;
@@ -27,7 +30,7 @@ const StyledSearchBar = styled.form`
 
     font-size: 12px;
     font-weight: 400;
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.tertiary};
 
     &:focus {
       outline: none;
@@ -38,7 +41,7 @@ const StyledSearchBar = styled.form`
     }
 
     &::placeholder {
-      color: ${props => props.theme.primary};
+      color: ${props => props.theme.tertiary};
       opacity: 1;
     }
   }
@@ -65,11 +68,11 @@ const StyledSearchBar = styled.form`
     height: 50px;
     padding-inline: 16px;
 
-    background-color: ${props => props.theme.accent};
+    background-color: #0079ff;
 
     font-size: 14px;
     font-weight: 800;
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.secondary};
 
     cursor: pointer;
 
@@ -110,7 +113,7 @@ const StyledSearchBar = styled.form`
 `;
 
 export default function SearchBar(props) {
-  const { error, setError, input, setInput, getUser } = props;
+  const { theme, error, setError, input, setInput, getUser } = props;
 
   const onSubmitHandler = event => {
     event.preventDefault();
@@ -128,7 +131,12 @@ export default function SearchBar(props) {
   };
 
   return (
-    <StyledSearchBar action='submit' onSubmit={onSubmitHandler} error={error}>
+    <StyledSearchBar
+      action='submit'
+      onSubmit={onSubmitHandler}
+      theme={theme}
+      error={error}
+    >
       <p>🔍</p>
       <input
         type='text'

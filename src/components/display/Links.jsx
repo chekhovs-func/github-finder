@@ -18,7 +18,7 @@ const StyledLinks = styled.ul`
     margin-bottom: 16px;
 
     font-size: 13px;
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.tertiary};
 
     .emoji {
       margin-right: 19px;
@@ -26,7 +26,7 @@ const StyledLinks = styled.ul`
 
     a {
       text-decoration: none;
-      color: ${props => props.theme.primary};
+      color: ${props => props.theme.tertiary};
 
       &:hover {
         text-decoration: underline;

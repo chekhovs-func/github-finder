@@ -1,10 +1,13 @@
 import styled from 'styled-components';
+import { light } from '../../themes';
 import Info from './Info';
 import Links from './Links';
 import Stats from './Stats';
 
 const StyledDisplay = styled.section`
   border-radius: 15px;
+  box-shadow: ${props =>
+    props.theme === light ? 'rgba(70, 96, 187, .20) 0 16px 30px -20px' : 'none'};
   padding: 32px 28px 48px 28px;
 
   background-color: ${props => props.theme.foreground};
@@ -20,6 +23,7 @@ const StyledDisplay = styled.section`
 
 export default function Display(props) {
   const {
+    theme,
     avatar,
     name,
     login,
@@ -35,7 +39,7 @@ export default function Display(props) {
   } = props;
 
   return (
-    <StyledDisplay>
+    <StyledDisplay theme={theme}>
       <Info avatar={avatar} name={name} login={login} created={created} bio={bio} />
       <Stats repos={repos} followers={followers} following={following} />
       <Links location={location} blog={blog} twitter={twitter} company={company} />

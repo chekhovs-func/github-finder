@@ -21,7 +21,7 @@ const StyledInfo = styled.section`
     margin-bottom: 20px;
     width: 100%;
 
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.tertiary};
 
     article {
       flex-direction: column;
@@ -31,6 +31,7 @@ const StyledInfo = styled.section`
       h1 {
         font-size: 16px;
         font-weight: 800;
+        color: ${props => props.theme.primary}
       }
 
       h2 {
@@ -38,7 +39,7 @@ const StyledInfo = styled.section`
 
         font-size: 13px;
         font-weight: 400;
-        color: ${props => props.theme.accent};
+        color: #0079ff;
       }
     }
 
