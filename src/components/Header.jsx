@@ -14,21 +14,26 @@ const StyledHeader = styled.header`
     color: ${props => props.theme.primary};
   }
 
-  button {
-    border-style: none;
+  article {
+    display: flex;
 
-    background-color: transparent;
+    button {
+      margin-right: 16px;
+      border-style: none;
 
-    font-size: 13px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: ${props => props.theme.primary};
+      background-color: transparent;
 
-    cursor: pointer;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: ${props => props.theme.primary};
 
-    &:hover {
-      color: ${props => props.theme.secondaryActive};
+      cursor: pointer;
+
+      &:hover {
+        color: ${props => props.theme.secondaryActive};
+      }
     }
   }
 `;
@@ -37,7 +42,10 @@ export default function Header() {
   return (
     <StyledHeader>
       <h1>devfinder</h1>
-      <button>Light</button>
+      <article>
+        <button>Light</button>
+        <p>☀️</p>
+      </article>
     </StyledHeader>
   );
 }
