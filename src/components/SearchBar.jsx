@@ -15,6 +15,10 @@ const StyledSearchBar = styled.section`
 
   background-color: ${props => props.theme.foreground};
 
+  p {
+    margin-right: 9px;
+  }
+
   input {
     border-style: none;
     width: 100%;
@@ -22,7 +26,7 @@ const StyledSearchBar = styled.section`
 
     background-color: transparent;
 
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
     color: ${props => props.theme.primary};
 
@@ -70,6 +74,10 @@ const StyledSearchBar = styled.section`
     height: 69px;
     padding-inline: 32px 10px;
 
+    p {
+    margin-right: 24px;
+  }
+
     input {
       padding-right: 32px;
 
@@ -88,6 +96,7 @@ const StyledSearchBar = styled.section`
 export default function SearchBar() {
   return (
     <StyledSearchBar>
+      <p>🔍</p>
       <input type='text' placeholder='Search GitHub username...' />
       <button>Search</button>
     </StyledSearchBar>
