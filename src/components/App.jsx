@@ -1,4 +1,4 @@
-import { dark } from '../themes';
+import { dark, light } from '../themes';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { useState } from 'react';
 import axios from 'axios';
@@ -65,6 +65,7 @@ export default function App() {
   });
   const [input, setInput] = useState('');
   const [error, setError] = useState(false);
+  const [theme, setTheme] = useState(dark);
 
   const getUser = () => {
     axios({
@@ -78,11 +79,12 @@ export default function App() {
   return (
     <>
       <GlobalStyle />
-      <ThemeProvider theme={dark}>
+      <ThemeProvider theme={theme}>
         <StyledApp>
           <section className='wrapper'>
-            <Header />
+            <Header theme={theme} setTheme={setTheme} />
             <SearchBar
+              theme={theme}
               error={error}
               setError={setError}
               input={input}
@@ -90,6 +92,7 @@ export default function App() {
               getUser={getUser}
             />
             <Display
+              theme={theme}
               avatar={user.avatar_url}
               name={user.name}
               login={user.login}
