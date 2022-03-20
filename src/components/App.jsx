@@ -1,5 +1,6 @@
 import { dark } from '../themes';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { useState } from 'react';
 import Header from './Header';
 import SearchBar from './SearchBar';
 import Display from './display/Display';
@@ -46,7 +47,7 @@ const StyledApp = styled.main`
 `;
 
 export default function App() {
-  const userData = {
+  const [user, setUser] = useState({
     login: 'octocat',
     avatar_url: 'https://avatars.githubusercontent.com/u/583231?v=4',
     html_url: 'https://github.com/octocat',
@@ -60,7 +61,7 @@ export default function App() {
     followers: 5122,
     following: 9,
     created_at: '2011-01-25T18:44:36Z',
-  };
+  });
 
   return (
     <>
@@ -70,7 +71,20 @@ export default function App() {
           <section className='wrapper'>
             <Header />
             <SearchBar />
-            <Display />
+            <Display
+              avatar={user.avatar_url}
+              name={user.name}
+              login={user.login}
+              created={user.created_at}
+              bio={user.bio}
+              repos={user.public_repos}
+              followers={user.followers}
+              following={user.following}
+              location={user.location}
+              blog={user.blog}
+              twitter={user.twitter_username}
+              company={user.company}
+            />
           </section>
         </StyledApp>
       </ThemeProvider>

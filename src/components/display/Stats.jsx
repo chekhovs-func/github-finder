@@ -59,20 +59,22 @@ const StyledStats = styled.section`
   }
 `;
 
-export default function Stats() {
+export default function Stats(props) {
+  const { repos, followers, following } = props;
+
   return (
     <StyledStats>
       <article>
         <h1>Repos</h1>
-        <p>8</p>
+        <p>{repos}</p>
       </article>
       <article>
         <h1>Followers</h1>
-        <p>5122</p>
+        <p>{followers}</p>
       </article>
       <article>
         <h1>Following</h1>
-        <p>9</p>
+        <p>{following}</p>
       </article>
     </StyledStats>
   );

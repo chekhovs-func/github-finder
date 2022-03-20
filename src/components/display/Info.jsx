@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import moment from 'moment';
 
 const StyledInfo = styled.section`
   display: flex;
@@ -53,8 +54,13 @@ const StyledInfo = styled.section`
       right: 89px;
 
       width: 275px;
+      min-height: 54px;
 
       font-size: 12px;
+    }
+
+    .faded {
+      opacity: 0.75;
     }
   }
 
@@ -88,6 +94,7 @@ const StyledInfo = styled.section`
         right: 153px;
 
         width: 493px;
+        min-height: 15px;
 
         font-size: 15px;
       }
@@ -136,20 +143,19 @@ const StyledInfo = styled.section`
   }
 `;
 
-export default function Info() {
+export default function Info(props) {
+  const { avatar, name, login, created, bio } = props;
+
   return (
     <StyledInfo>
-      <img src='https://avatars.githubusercontent.com/u/583231?v=4' alt='' />
+      <img src={avatar} alt='' />
       <section>
         <article>
-          <h1>The Octocat</h1>
-          <h2>@octocat</h2>
+          <h1>{name}</h1>
+          <h2>@{login}</h2>
         </article>
-        <h3>Joined 25 Jan 2011</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque
-          volutpat mattis eros.
-        </p>
+        <h3>Joined {moment(created).format('DD MMM YYYY')}</h3>
+        {bio ? <p>{bio}</p> : <p className='faded'>This profile has no bio</p>}
       </section>
     </StyledInfo>
   );
