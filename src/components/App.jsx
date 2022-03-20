@@ -1,6 +1,7 @@
 import { dark } from '../themes';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { useState } from 'react';
+import axios from 'axios';
 import Header from './Header';
 import SearchBar from './SearchBar';
 import Display from './display/Display';
@@ -62,6 +63,17 @@ export default function App() {
     following: 9,
     created_at: '2011-01-25T18:44:36Z',
   });
+  const [input, setInput] = useState('');
+  const [error, setError] = useState(false);
+
+  const getUser = () => {
+    axios({
+      method: 'GET',
+      url: `https://api.github.com/users/${input}`,
+    })
+      .then(response => setUser(response.data))
+      .catch(error => setError(true));
+  };
 
   return (
     <>
@@ -70,7 +82,13 @@ export default function App() {
         <StyledApp>
           <section className='wrapper'>
             <Header />
-            <SearchBar />
+            <SearchBar
+              error={error}
+              setError={setError}
+              input={input}
+              setInput={setInput}
+              getUser={getUser}
+            />
             <Display
               avatar={user.avatar_url}
               name={user.name}

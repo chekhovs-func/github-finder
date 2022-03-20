@@ -32,7 +32,7 @@ const StyledHeader = styled.header`
       cursor: pointer;
 
       &:hover {
-        color: ${props => props.theme.secondaryActive};
+        color: ${props => props.theme.primaryActive};
       }
     }
   }

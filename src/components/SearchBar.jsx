@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-const StyledSearchBar = styled.section`
+const StyledSearchBar = styled.form`
   justify-content: space-between;
   align-items: center;
 
   display: flex;
-
 
   margin-bottom: 16px;
   border-radius: 15px;
@@ -44,6 +43,16 @@ const StyledSearchBar = styled.section`
     }
   }
 
+  aside {
+    display: ${props => (props.error ? 'auto' : 'none')};
+
+    width: 250px;
+
+    font-size: 11px;
+    font-weight: 800;
+    color: #f74646;
+  }
+
   button {
     justify-content: center;
     align-items: center;
@@ -65,7 +74,7 @@ const StyledSearchBar = styled.section`
     cursor: pointer;
 
     &:hover {
-      background-color: ${props => props.theme.primaryActive};
+      background-color: #60abff;
     }
   }
 
@@ -75,13 +84,20 @@ const StyledSearchBar = styled.section`
     padding-inline: 32px 10px;
 
     p {
-    margin-right: 24px;
-  }
+      margin-right: 24px;
+    }
 
     input {
       padding-right: 32px;
 
       font-size: 18px;
+    }
+
+    aside {
+      margin-right: 24px;
+      width: 199px;
+
+      font-size: 15px;
     }
 
     button {
@@ -93,12 +109,36 @@ const StyledSearchBar = styled.section`
   }
 `;
 
-export default function SearchBar() {
+export default function SearchBar(props) {
+  const { error, setError, input, setInput, getUser } = props;
+
+  const onSubmitHandler = event => {
+    event.preventDefault();
+    if (input) {
+      getUser();
+      setInput('');
+    } else {
+      return;
+    }
+  };
+
+  const onChangeHandler = event => {
+    setInput(event.target.value);
+    setError(false);
+  };
+
   return (
-    <StyledSearchBar>
+    <StyledSearchBar action='submit' onSubmit={onSubmitHandler} error={error}>
       <p>🔍</p>
-      <input type='text' placeholder='Search GitHub username...' />
-      <button>Search</button>
+      <input
+        type='text'
+        placeholder='Search GitHub username...'
+        value={input}
+        onChange={onChangeHandler}
+        onClick={() => setError('')}
+      />
+      <aside>No results</aside>
+      <button type='submit'>Search</button>
     </StyledSearchBar>
   );
 }
